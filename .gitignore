@@ -1,5 +1,7 @@
 /*
-!/index.html
-!/README.md
+!/*.html
+!/*.css
+!/*.js
+!/*.md
 !/bootstrap
 !/.gitignore
