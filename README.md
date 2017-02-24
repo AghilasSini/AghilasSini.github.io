@@ -1,6 +1,8 @@
 # SiniAghilas.github.io
-  Two Poject are to include in this Project:
+  Three Pojects are to include in this repository:
 
 ## MACHAHU (MAchine CHAnge HUmane)
 
 ## AYS (AndYouSay)
+
+## The Game of Wise
