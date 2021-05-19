@@ -1,0 +1,20 @@
+html, body, h1, h2, h3, h4, h5, h6 {font-family: "Roboto", "Calibri", "Arial", sans-serif}
+
+/* The default Roboto bold font is too thin, almost invisible */
+b, strong {font-weight: 700;}
+
+a:hover {
+    border-radius: 3px;
+    background: #ffff99;
+}
+
+a.block, a.block:link, a.block:visited, a.block:hover, a.block:active {
+    border-radius: 6px;
+    background: #1299C0;
+    color: #FFFFFF;
+    padding: 2px 3px 2px 3px;
+    text-decoration: none;
+}
+
+/* Default font too small */
+p, li {font-size: 18px}
