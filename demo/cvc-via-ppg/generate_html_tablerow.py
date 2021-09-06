@@ -24,5 +24,10 @@ with codecs.open(outfile_path,'w','utf-8') as out:
 						"<audio controls=\"\">\n"+
 							"<source src=\"{}\" type=\"audio/wav\">Your browser does not support the audio tag.</source>\n".format(file_path+'_waveglow.wav')+
 						"</audio>\n"+
+					"</td>\n"+	
+					"<td>\n"+
+						"<audio controls=\"\">\n"+
+							"<source src=\"{}\" type=\"audio/wav\">Your browser does not support the audio tag.</source>\n".format(file_path+'_ppg.wav')+
+						"</audio>\n"+
 					"</td>\n"+		
 				"</tr>\n")
