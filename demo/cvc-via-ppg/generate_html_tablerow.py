@@ -2,7 +2,7 @@
 import os
 import codecs
 
-filelist_path='filelist_demo.txt'
+filelist_path='convert_samples_list.txt'
 
 filelist=[ fl.strip()  for fl in codecs.open(filelist_path,'r','utf-8')]
 outfile_path="out_put.html"
@@ -20,11 +20,11 @@ with codecs.open(outfile_path,'w','utf-8') as out:
 							"<source src=\"{}\" type=\"audio/wav\">Your browser does not support the audio tag.</source>\n".format(file_path+".wav")+
 						"</audio>\n"+
 					"</td>\n"+
-					"<td>\n"+
-						"<audio controls=\"\">\n"+
-							"<source src=\"{}\" type=\"audio/wav\">Your browser does not support the audio tag.</source>\n".format(file_path+'_waveglow.wav')+
-						"</audio>\n"+
-					"</td>\n"+	
+					# "<td>\n"+
+					# 	"<audio controls=\"\">\n"+
+					# 		"<source src=\"{}\" type=\"audio/wav\">Your browser does not support the audio tag.</source>\n".format(file_path+'_waveglow.wav')+
+					# 	"</audio>\n"+
+					# "</td>\n"+	
 					"<td>\n"+
 						"<audio controls=\"\">\n"+
 							"<source src=\"{}\" type=\"audio/wav\">Your browser does not support the audio tag.</source>\n".format(file_path+'_ppg.wav')+
