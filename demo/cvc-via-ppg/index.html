@@ -9,7 +9,7 @@
 
   gtag('config', 'UA-171609755-1');
 </script>
-<meta content="text/html; charset=UTF-8" http-equiv="content-type"><title>Deep-learning based voice conversion</title>
+<meta content="text/html; charset=UTF-8" http-equiv="content-type"><title>LREC'2022</title>
 <!-- <link rel="icon" href="../../media/image/favicon.png"> -->
 </head>
 <style>
@@ -76,15 +76,15 @@ main table.samples td{
 }
 
 .mtf { 
-	background-color: rgb(225, 225, 255);
+	background-color: rgb(100, 225, 255);
 }
 
 .ftm{
-	background-color: rgb(255, 225, 225);
+	background-color: rgb(100, 225, 225);
 }
 
 .source{
-	background-color: rgb(225, 255, 225);
+	background-color: rgb(100, 255, 225);
 }
 
 audio{
@@ -97,19 +97,27 @@ audio{
 <tbody>
 <tr>
 <td>
-<h1>Deep-learning based voice conversion: Application to characters switching for story-telling</h1>
-<!-- <h2>Thibault Gaudier, Aghilas Sini, Nelly Barbot, Damien Lolive</h2> -->
-<h2>Université de Rennes 1- IRISA Lab., ENSSAT, Lannion </h2>
+<h1>INVESTIGATING INTER AND INTRA-SPEAKER VOICE CONVERSION USING AUDIOBOOK</h1>
+<h2>Aghilas Sini , Damien Lolive , Nelly Barbot , Pierre Alain</h2>
+<h2>Univ Rennes, CNRS, IRISA Lannion, France </h2>
+<h2>6 Rue de Kerampont CS 80518, 22305 Lannion</h2>
 </td>
 </tbody>
 </table>
 <main>
+
+
+
 
 <!-- <h2>Systems</h2>
 <ul>
 	<li><b>Baseline</b>: The accent conversion system used in [1], available at <a href="https://github.com/guanlongzhao/ppg-gmm" target="_blank">https://github.com/guanlongzhao/ppg-gmm</a></li>
 	<li><b>Proposed</b>: The proposed accent conversion system, available at <a href="https://github.com/guanlongzhao/fac-via-ppg" target="_blank">https://github.com/guanlongzhao/fac-via-ppg</a></li>
 </ul>
+
+
+
+
 
 <h2>Notes</h2>
 <ul>
@@ -121,18 +129,53 @@ audio{
 	<li>Please view this page in Google Chrome or Microsoft Edge for best quality</li>
 </ul>
  -->
-<h2>Synthesised Sample</h2>
+<h2> Abstract </h2>
+
+<p style="text-align:justify">  Audiobook readers play with their voices to emphasize some text passages, highlight discourse changes or significant events, in order to make listening easier and entertaining. Dialog is a central passage in audiobooks where the reader applies significant voice transformation, mainly prosodic modifications, to realize character properties and changes. However, these intra-speaker modifications are hard to re-produce with simple text-to-speech synthesis. The manner of vocalizing characters involved in a given story depends on the text style and differs from one speaker to another. In this work, this problem is investigated through the prism of voice conversion. We propose to explore modifying the narrator’s voice to fit the context of the story, such as the character who is speaking, using voice conversion. To this end, two complementary experiments are designed: the first one aims to assess the quality of our Phonetic PosteriorGrams (PPG)-based voice conversion system using parallel data. Objective and subjective evaluations with naive raters are conducted to estimate the quality of the signal generated and the speaker similarity. The second experiment applies an intra speaker voice conversion, considering narration passages and character speech passages as two distinct speakers. Data are then no parallel and the dissimilarity between character and narrator is subjectively measured. </p>
+
+
+<h2>Tasks</h2>
+ <ul>
+	 <li><b>Inter-speaker voice conversion</b>: change voice from speaker source to target speaeker.    </li>
+	 <li><b>Intra-speaker voice conversion</b>: change voice style.   </li>
+</ul>
+ 
+
+<h2> Dataset </h2>
+<h3>Inter-speaker</h3>
+<ol>
+<li>   <b>Boule de suif  (author  Guy de maupassant)</b> : <abbr>FFR0009LV</abbr> (Ezwa, female voice)   , <abbr>FFR0012LA</abbr> (Victoria, female voice), <abbr>MFR0015LA</abbr> (Jean-Luc Fischer, male voice)    </li>
+<li>   <b>La petite comtesse  (author  Octave Feuillet)</b> : <abbr>FFR0011LA</abbr> (Pomme, female voice), <abbr>MFR0013LA</abbr> (DanielLuttringer, male voice), <abbr>MFR0014LA</abbr> (René Depasse, male voice)     </li>
+
+</ol>
+
+<h3>Intra-speaker</h3>
+<ul>
+	<li>
+		For the intra-speaker voice conversion or voice style conversion with  <cite>the Synpaflex corpus</cite>.
+	</li>
+	
+</ul>
+
+
+
+
+ <h2>Inter-speaker voice conversion samples  </h2>
+
+
+
 
 
 
 <table width="100%" class="samples">
 <tbody>
 	<tr>
-		<th>Utterance ID</th>
-		<th>Kaldi ASR Transcription</th>
-		<th>Audio Sample</th>
-		<th>WaveGlow Sample</th>	
-		<th>Synthesised via ppg (PPG2MEL + WAVEGLOW)</th>	
+		<th>Speaker ID</th>
+		<th>Synth. mode (SynMode) </th>
+		<th>Intra-gender Conv. mode </th>
+		<th>Inter-gender Conv. mode </th>	
+		<th>Intra-gender Source Voc.</th>	
+		<th>Inter-gender Source Voc.</th>	
 	</tr>
 
 
@@ -153,1187 +196,85 @@ audio{
 </td>
 <td>
 <audio controls="">
-<source src="wavs/frFemale_Voice_WaveGlowFinetune/siwis_0001_ppg.wav" type="audio/wav">Your browser does not support the audio tag.</source>
-</audio>
-</td>
-</tr>
-<tr>
-<td>siwis_0002</td>
-<td>
-<p><iframe src="wavs/frFemale_Voice_WaveGlowFinetune/siwis_0002.txt" frameborder="0" height="40" width="95%"></iframe></p> 
-</td>
-<td>
-<audio controls="">
-<source src="wavs/frFemale_Voice_WaveGlowFinetune/siwis_0002.wav" type="audio/wav">Your browser does not support the audio tag.</source>
-</audio>
-</td>
-<td>
-<audio controls="">
-<source src="wavs/frFemale_Voice_WaveGlowFinetune/siwis_0002_waveglow.wav" type="audio/wav">Your browser does not support the audio tag.</source>
-</audio>
-</td>
-<td>
-<audio controls="">
-<source src="wavs/frFemale_Voice_WaveGlowFinetune/siwis_0002_ppg.wav" type="audio/wav">Your browser does not support the audio tag.</source>
-</audio>
-</td>
-</tr>
-<tr>
-<td>siwis_0003</td>
-<td>
-<p><iframe src="wavs/frFemale_Voice_WaveGlowFinetune/siwis_0003.txt" frameborder="0" height="40" width="95%"></iframe></p> 
-</td>
-<td>
-<audio controls="">
-<source src="wavs/frFemale_Voice_WaveGlowFinetune/siwis_0003.wav" type="audio/wav">Your browser does not support the audio tag.</source>
-</audio>
-</td>
-<td>
-<audio controls="">
-<source src="wavs/frFemale_Voice_WaveGlowFinetune/siwis_0003_waveglow.wav" type="audio/wav">Your browser does not support the audio tag.</source>
-</audio>
-</td>
-<td>
-<audio controls="">
-<source src="wavs/frFemale_Voice_WaveGlowFinetune/siwis_0003_ppg.wav" type="audio/wav">Your browser does not support the audio tag.</source>
-</audio>
-</td>
-</tr>
-<tr>
-<td>siwis_0004</td>
-<td>
-<p><iframe src="wavs/frFemale_Voice_WaveGlowFinetune/siwis_0004.txt" frameborder="0" height="40" width="95%"></iframe></p> 
-</td>
-<td>
-<audio controls="">
-<source src="wavs/frFemale_Voice_WaveGlowFinetune/siwis_0004.wav" type="audio/wav">Your browser does not support the audio tag.</source>
-</audio>
-</td>
-<td>
-<audio controls="">
-<source src="wavs/frFemale_Voice_WaveGlowFinetune/siwis_0004_waveglow.wav" type="audio/wav">Your browser does not support the audio tag.</source>
-</audio>
-</td>
-<td>
-<audio controls="">
-<source src="wavs/frFemale_Voice_WaveGlowFinetune/siwis_0004_ppg.wav" type="audio/wav">Your browser does not support the audio tag.</source>
-</audio>
-</td>
-</tr>
-<tr>
-<td>siwis_0007</td>
-<td>
-<p><iframe src="wavs/frFemale_Voice_WaveGlowFinetune/siwis_0007.txt" frameborder="0" height="40" width="95%"></iframe></p> 
-</td>
-<td>
-<audio controls="">
-<source src="wavs/frFemale_Voice_WaveGlowFinetune/siwis_0007.wav" type="audio/wav">Your browser does not support the audio tag.</source>
-</audio>
-</td>
-<td>
-<audio controls="">
-<source src="wavs/frFemale_Voice_WaveGlowFinetune/siwis_0007_waveglow.wav" type="audio/wav">Your browser does not support the audio tag.</source>
-</audio>
-</td>
-<td>
-<audio controls="">
-<source src="wavs/frFemale_Voice_WaveGlowFinetune/siwis_0007_ppg.wav" type="audio/wav">Your browser does not support the audio tag.</source>
-</audio>
-</td>
-</tr>
-<tr>
-<td>siwis_0014</td>
-<td>
-<p><iframe src="wavs/frFemale_Voice_WaveGlowFinetune/siwis_0014.txt" frameborder="0" height="40" width="95%"></iframe></p> 
-</td>
-<td>
-<audio controls="">
-<source src="wavs/frFemale_Voice_WaveGlowFinetune/siwis_0014.wav" type="audio/wav">Your browser does not support the audio tag.</source>
-</audio>
-</td>
-<td>
-<audio controls="">
-<source src="wavs/frFemale_Voice_WaveGlowFinetune/siwis_0014_waveglow.wav" type="audio/wav">Your browser does not support the audio tag.</source>
-</audio>
-</td>
-<td>
-<audio controls="">
-<source src="wavs/frFemale_Voice_WaveGlowFinetune/siwis_0014_ppg.wav" type="audio/wav">Your browser does not support the audio tag.</source>
-</audio>
-</td>
-</tr>
-<tr>
-<td>siwis_0028</td>
-<td>
-<p><iframe src="wavs/frFemale_Voice_WaveGlowFinetune/siwis_0028.txt" frameborder="0" height="40" width="95%"></iframe></p> 
-</td>
-<td>
-<audio controls="">
-<source src="wavs/frFemale_Voice_WaveGlowFinetune/siwis_0028.wav" type="audio/wav">Your browser does not support the audio tag.</source>
-</audio>
-</td>
-<td>
-<audio controls="">
-<source src="wavs/frFemale_Voice_WaveGlowFinetune/siwis_0028_waveglow.wav" type="audio/wav">Your browser does not support the audio tag.</source>
-</audio>
-</td>
-<td>
-<audio controls="">
-<source src="wavs/frFemale_Voice_WaveGlowFinetune/siwis_0028_ppg.wav" type="audio/wav">Your browser does not support the audio tag.</source>
-</audio>
-</td>
-</tr>
-<tr>
-<td>siwis_0033</td>
-<td>
-<p><iframe src="wavs/frFemale_Voice_WaveGlowFinetune/siwis_0033.txt" frameborder="0" height="40" width="95%"></iframe></p> 
-</td>
-<td>
-<audio controls="">
-<source src="wavs/frFemale_Voice_WaveGlowFinetune/siwis_0033.wav" type="audio/wav">Your browser does not support the audio tag.</source>
-</audio>
-</td>
-<td>
-<audio controls="">
-<source src="wavs/frFemale_Voice_WaveGlowFinetune/siwis_0033_waveglow.wav" type="audio/wav">Your browser does not support the audio tag.</source>
-</audio>
-</td>
-<td>
-<audio controls="">
-<source src="wavs/frFemale_Voice_WaveGlowFinetune/siwis_0033_ppg.wav" type="audio/wav">Your browser does not support the audio tag.</source>
-</audio>
-</td>
-</tr>
-<tr>
-<td>siwis_0034</td>
-<td>
-<p><iframe src="wavs/frFemale_Voice_WaveGlowFinetune/siwis_0034.txt" frameborder="0" height="40" width="95%"></iframe></p> 
-</td>
-<td>
-<audio controls="">
-<source src="wavs/frFemale_Voice_WaveGlowFinetune/siwis_0034.wav" type="audio/wav">Your browser does not support the audio tag.</source>
-</audio>
-</td>
-<td>
-<audio controls="">
-<source src="wavs/frFemale_Voice_WaveGlowFinetune/siwis_0034_waveglow.wav" type="audio/wav">Your browser does not support the audio tag.</source>
-</audio>
-</td>
-<td>
-<audio controls="">
-<source src="wavs/frFemale_Voice_WaveGlowFinetune/siwis_0034_ppg.wav" type="audio/wav">Your browser does not support the audio tag.</source>
-</audio>
-</td>
-</tr>
-<tr>
-<td>siwis_0037</td>
-<td>
-<p><iframe src="wavs/frFemale_Voice_WaveGlowFinetune/siwis_0037.txt" frameborder="0" height="40" width="95%"></iframe></p> 
-</td>
-<td>
-<audio controls="">
-<source src="wavs/frFemale_Voice_WaveGlowFinetune/siwis_0037.wav" type="audio/wav">Your browser does not support the audio tag.</source>
-</audio>
-</td>
-<td>
-<audio controls="">
-<source src="wavs/frFemale_Voice_WaveGlowFinetune/siwis_0037_waveglow.wav" type="audio/wav">Your browser does not support the audio tag.</source>
-</audio>
-</td>
-<td>
-<audio controls="">
-<source src="wavs/frFemale_Voice_WaveGlowFinetune/siwis_0037_ppg.wav" type="audio/wav">Your browser does not support the audio tag.</source>
-</audio>
-</td>
-</tr>
-<tr>
-<td>siwis_0043</td>
-<td>
-<p><iframe src="wavs/frFemale_Voice_WaveGlowFinetune/siwis_0043.txt" frameborder="0" height="40" width="95%"></iframe></p> 
-</td>
-<td>
-<audio controls="">
-<source src="wavs/frFemale_Voice_WaveGlowFinetune/siwis_0043.wav" type="audio/wav">Your browser does not support the audio tag.</source>
-</audio>
-</td>
-<td>
-<audio controls="">
-<source src="wavs/frFemale_Voice_WaveGlowFinetune/siwis_0043_waveglow.wav" type="audio/wav">Your browser does not support the audio tag.</source>
-</audio>
-</td>
-<td>
-<audio controls="">
-<source src="wavs/frFemale_Voice_WaveGlowFinetune/siwis_0043_ppg.wav" type="audio/wav">Your browser does not support the audio tag.</source>
-</audio>
-</td>
-</tr>
-<tr>
-<td>siwis_0047</td>
-<td>
-<p><iframe src="wavs/frFemale_Voice_WaveGlowFinetune/siwis_0047.txt" frameborder="0" height="40" width="95%"></iframe></p> 
-</td>
-<td>
-<audio controls="">
-<source src="wavs/frFemale_Voice_WaveGlowFinetune/siwis_0047.wav" type="audio/wav">Your browser does not support the audio tag.</source>
-</audio>
-</td>
-<td>
-<audio controls="">
-<source src="wavs/frFemale_Voice_WaveGlowFinetune/siwis_0047_waveglow.wav" type="audio/wav">Your browser does not support the audio tag.</source>
-</audio>
-</td>
-<td>
-<audio controls="">
-<source src="wavs/frFemale_Voice_WaveGlowFinetune/siwis_0047_ppg.wav" type="audio/wav">Your browser does not support the audio tag.</source>
-</audio>
-</td>
-</tr>
-<tr>
-<td>siwis_0050</td>
-<td>
-<p><iframe src="wavs/frFemale_Voice_WaveGlowFinetune/siwis_0050.txt" frameborder="0" height="40" width="95%"></iframe></p> 
-</td>
-<td>
-<audio controls="">
-<source src="wavs/frFemale_Voice_WaveGlowFinetune/siwis_0050.wav" type="audio/wav">Your browser does not support the audio tag.</source>
-</audio>
-</td>
-<td>
-<audio controls="">
-<source src="wavs/frFemale_Voice_WaveGlowFinetune/siwis_0050_waveglow.wav" type="audio/wav">Your browser does not support the audio tag.</source>
-</audio>
-</td>
-<td>
-<audio controls="">
-<source src="wavs/frFemale_Voice_WaveGlowFinetune/siwis_0050_ppg.wav" type="audio/wav">Your browser does not support the audio tag.</source>
-</audio>
-</td>
-</tr>
-<tr>
-<td>siwis_0052</td>
-<td>
-<p><iframe src="wavs/frFemale_Voice_WaveGlowFinetune/siwis_0052.txt" frameborder="0" height="40" width="95%"></iframe></p> 
-</td>
-<td>
-<audio controls="">
-<source src="wavs/frFemale_Voice_WaveGlowFinetune/siwis_0052.wav" type="audio/wav">Your browser does not support the audio tag.</source>
-</audio>
-</td>
-<td>
-<audio controls="">
-<source src="wavs/frFemale_Voice_WaveGlowFinetune/siwis_0052_waveglow.wav" type="audio/wav">Your browser does not support the audio tag.</source>
-</audio>
-</td>
-<td>
-<audio controls="">
-<source src="wavs/frFemale_Voice_WaveGlowFinetune/siwis_0052_ppg.wav" type="audio/wav">Your browser does not support the audio tag.</source>
-</audio>
-</td>
-</tr>
-<tr>
-<td>siwis_0055</td>
-<td>
-<p><iframe src="wavs/frFemale_Voice_WaveGlowFinetune/siwis_0055.txt" frameborder="0" height="40" width="95%"></iframe></p> 
-</td>
-<td>
-<audio controls="">
-<source src="wavs/frFemale_Voice_WaveGlowFinetune/siwis_0055.wav" type="audio/wav">Your browser does not support the audio tag.</source>
-</audio>
-</td>
-<td>
-<audio controls="">
-<source src="wavs/frFemale_Voice_WaveGlowFinetune/siwis_0055_waveglow.wav" type="audio/wav">Your browser does not support the audio tag.</source>
-</audio>
-</td>
-<td>
-<audio controls="">
-<source src="wavs/frFemale_Voice_WaveGlowFinetune/siwis_0055_ppg.wav" type="audio/wav">Your browser does not support the audio tag.</source>
-</audio>
-</td>
-</tr>
-<tr>
-<td>siwis_0056</td>
-<td>
-<p><iframe src="wavs/frFemale_Voice_WaveGlowFinetune/siwis_0056.txt" frameborder="0" height="40" width="95%"></iframe></p> 
-</td>
-<td>
-<audio controls="">
-<source src="wavs/frFemale_Voice_WaveGlowFinetune/siwis_0056.wav" type="audio/wav">Your browser does not support the audio tag.</source>
-</audio>
-</td>
-<td>
-<audio controls="">
-<source src="wavs/frFemale_Voice_WaveGlowFinetune/siwis_0056_waveglow.wav" type="audio/wav">Your browser does not support the audio tag.</source>
-</audio>
-</td>
-<td>
-<audio controls="">
-<source src="wavs/frFemale_Voice_WaveGlowFinetune/siwis_0056_ppg.wav" type="audio/wav">Your browser does not support the audio tag.</source>
-</audio>
-</td>
-</tr>
-<tr>
-<td>siwis_0065</td>
-<td>
-<p><iframe src="wavs/frFemale_Voice_WaveGlowFinetune/siwis_0065.txt" frameborder="0" height="40" width="95%"></iframe></p> 
-</td>
-<td>
-<audio controls="">
-<source src="wavs/frFemale_Voice_WaveGlowFinetune/siwis_0065.wav" type="audio/wav">Your browser does not support the audio tag.</source>
-</audio>
-</td>
-<td>
-<audio controls="">
-<source src="wavs/frFemale_Voice_WaveGlowFinetune/siwis_0065_waveglow.wav" type="audio/wav">Your browser does not support the audio tag.</source>
-</audio>
-</td>
-<td>
-<audio controls="">
-<source src="wavs/frFemale_Voice_WaveGlowFinetune/siwis_0065_ppg.wav" type="audio/wav">Your browser does not support the audio tag.</source>
-</audio>
-</td>
-</tr>
-<tr>
-<td>siwis_0068</td>
-<td>
-<p><iframe src="wavs/frFemale_Voice_WaveGlowFinetune/siwis_0068.txt" frameborder="0" height="40" width="95%"></iframe></p> 
-</td>
-<td>
-<audio controls="">
-<source src="wavs/frFemale_Voice_WaveGlowFinetune/siwis_0068.wav" type="audio/wav">Your browser does not support the audio tag.</source>
-</audio>
-</td>
-<td>
-<audio controls="">
-<source src="wavs/frFemale_Voice_WaveGlowFinetune/siwis_0068_waveglow.wav" type="audio/wav">Your browser does not support the audio tag.</source>
-</audio>
-</td>
-<td>
-<audio controls="">
-<source src="wavs/frFemale_Voice_WaveGlowFinetune/siwis_0068_ppg.wav" type="audio/wav">Your browser does not support the audio tag.</source>
-</audio>
-</td>
-</tr>
-<tr>
-<td>siwis_0082</td>
-<td>
-<p><iframe src="wavs/frFemale_Voice_WaveGlowFinetune/siwis_0082.txt" frameborder="0" height="40" width="95%"></iframe></p> 
-</td>
-<td>
-<audio controls="">
-<source src="wavs/frFemale_Voice_WaveGlowFinetune/siwis_0082.wav" type="audio/wav">Your browser does not support the audio tag.</source>
-</audio>
-</td>
-<td>
-<audio controls="">
-<source src="wavs/frFemale_Voice_WaveGlowFinetune/siwis_0082_waveglow.wav" type="audio/wav">Your browser does not support the audio tag.</source>
-</audio>
-</td>
-<td>
-<audio controls="">
-<source src="wavs/frFemale_Voice_WaveGlowFinetune/siwis_0082_ppg.wav" type="audio/wav">Your browser does not support the audio tag.</source>
-</audio>
-</td>
-</tr>
-<tr>
-<td>siwis_0090</td>
-<td>
-<p><iframe src="wavs/frFemale_Voice_WaveGlowFinetune/siwis_0090.txt" frameborder="0" height="40" width="95%"></iframe></p> 
-</td>
-<td>
-<audio controls="">
-<source src="wavs/frFemale_Voice_WaveGlowFinetune/siwis_0090.wav" type="audio/wav">Your browser does not support the audio tag.</source>
-</audio>
-</td>
-<td>
-<audio controls="">
-<source src="wavs/frFemale_Voice_WaveGlowFinetune/siwis_0090_waveglow.wav" type="audio/wav">Your browser does not support the audio tag.</source>
-</audio>
-</td>
-<td>
-<audio controls="">
-<source src="wavs/frFemale_Voice_WaveGlowFinetune/siwis_0090_ppg.wav" type="audio/wav">Your browser does not support the audio tag.</source>
-</audio>
-</td>
-</tr>
-
-<!-- Male Speaker -->
+	<source src="wavs/frFemale_Voice_WaveGlowFinetune/siwis_0001_waveglow.wav" type="audio/wav">Your browser does not support the audio tag.</source>
+	</audio>
+	</td>
 
 
-<tr>
-<td>candide_01_voltaire_00006</td>
 <td>
-<p><iframe src="wavs/frMale_Voice_WaveGlowFinetune/candide_01_voltaire_00006.txt" frameborder="0" height="40" width="95%"></iframe></p> 
-</td>
-<td>
-<audio controls="">
-<source src="wavs/frMale_Voice_WaveGlowFinetune/candide_01_voltaire_00006.wav" type="audio/wav">Your browser does not support the audio tag.</source>
-</audio>
-</td>
-<td>
-<audio controls="">
-<source src="wavs/frMale_Voice_WaveGlowFinetune/candide_01_voltaire_00006_waveglow.wav" type="audio/wav">Your browser does not support the audio tag.</source>
-</audio>
-</td>
-<td>
-<audio controls="">
-<source src="wavs/frMale_Voice_WaveGlowFinetune/candide_01_voltaire_00006_ppg.wav" type="audio/wav">Your browser does not support the audio tag.</source>
-</audio>
-</td>
-</tr>
-<tr>
-<td>candide_01_voltaire_00010</td>
-<td>
-<p><iframe src="wavs/frMale_Voice_WaveGlowFinetune/candide_01_voltaire_00010.txt" frameborder="0" height="40" width="95%"></iframe></p> 
-</td>
-<td>
-<audio controls="">
-<source src="wavs/frMale_Voice_WaveGlowFinetune/candide_01_voltaire_00010.wav" type="audio/wav">Your browser does not support the audio tag.</source>
-</audio>
-</td>
-<td>
-<audio controls="">
-<source src="wavs/frMale_Voice_WaveGlowFinetune/candide_01_voltaire_00010_waveglow.wav" type="audio/wav">Your browser does not support the audio tag.</source>
-</audio>
-</td>
-<td>
-<audio controls="">
-<source src="wavs/frMale_Voice_WaveGlowFinetune/candide_01_voltaire_00010_ppg.wav" type="audio/wav">Your browser does not support the audio tag.</source>
-</audio>
-</td>
-</tr>
-<tr>
-<td>candide_01_voltaire_00012</td>
-<td>
-<p><iframe src="wavs/frMale_Voice_WaveGlowFinetune/candide_01_voltaire_00012.txt" frameborder="0" height="40" width="95%"></iframe></p> 
-</td>
-<td>
-<audio controls="">
-<source src="wavs/frMale_Voice_WaveGlowFinetune/candide_01_voltaire_00012.wav" type="audio/wav">Your browser does not support the audio tag.</source>
-</audio>
-</td>
-<td>
-<audio controls="">
-<source src="wavs/frMale_Voice_WaveGlowFinetune/candide_01_voltaire_00012_waveglow.wav" type="audio/wav">Your browser does not support the audio tag.</source>
-</audio>
-</td>
-<td>
-<audio controls="">
-<source src="wavs/frMale_Voice_WaveGlowFinetune/candide_01_voltaire_00012_ppg.wav" type="audio/wav">Your browser does not support the audio tag.</source>
-</audio>
-</td>
-</tr>
-<tr>
-<td>candide_01_voltaire_00014</td>
-<td>
-<p><iframe src="wavs/frMale_Voice_WaveGlowFinetune/candide_01_voltaire_00014.txt" frameborder="0" height="40" width="95%"></iframe></p> 
-</td>
-<td>
-<audio controls="">
-<source src="wavs/frMale_Voice_WaveGlowFinetune/candide_01_voltaire_00014.wav" type="audio/wav">Your browser does not support the audio tag.</source>
-</audio>
-</td>
-<td>
-<audio controls="">
-<source src="wavs/frMale_Voice_WaveGlowFinetune/candide_01_voltaire_00014_waveglow.wav" type="audio/wav">Your browser does not support the audio tag.</source>
-</audio>
-</td>
-<td>
-<audio controls="">
-<source src="wavs/frMale_Voice_WaveGlowFinetune/candide_01_voltaire_00014_ppg.wav" type="audio/wav">Your browser does not support the audio tag.</source>
-</audio>
-</td>
-</tr>
-<tr>
-<td>candide_01_voltaire_00016</td>
-<td>
-<p><iframe src="wavs/frMale_Voice_WaveGlowFinetune/candide_01_voltaire_00016.txt" frameborder="0" height="40" width="95%"></iframe></p> 
-</td>
-<td>
-<audio controls="">
-<source src="wavs/frMale_Voice_WaveGlowFinetune/candide_01_voltaire_00016.wav" type="audio/wav">Your browser does not support the audio tag.</source>
-</audio>
-</td>
-<td>
-<audio controls="">
-<source src="wavs/frMale_Voice_WaveGlowFinetune/candide_01_voltaire_00016_waveglow.wav" type="audio/wav">Your browser does not support the audio tag.</source>
-</audio>
-</td>
-<td>
-<audio controls="">
-<source src="wavs/frMale_Voice_WaveGlowFinetune/candide_01_voltaire_00016_ppg.wav" type="audio/wav">Your browser does not support the audio tag.</source>
-</audio>
-</td>
-</tr>
-<tr>
-<td>candide_01_voltaire_00017</td>
-<td>
-<p><iframe src="wavs/frMale_Voice_WaveGlowFinetune/candide_01_voltaire_00017.txt" frameborder="0" height="40" width="95%"></iframe></p> 
-</td>
-<td>
-<audio controls="">
-<source src="wavs/frMale_Voice_WaveGlowFinetune/candide_01_voltaire_00017.wav" type="audio/wav">Your browser does not support the audio tag.</source>
-</audio>
-</td>
-<td>
-<audio controls="">
-<source src="wavs/frMale_Voice_WaveGlowFinetune/candide_01_voltaire_00017_waveglow.wav" type="audio/wav">Your browser does not support the audio tag.</source>
-</audio>
-</td>
-<td>
-<audio controls="">
-<source src="wavs/frMale_Voice_WaveGlowFinetune/candide_01_voltaire_00017_ppg.wav" type="audio/wav">Your browser does not support the audio tag.</source>
-</audio>
-</td>
-</tr>
-<tr>
-<td>candide_01_voltaire_00019</td>
-<td>
-<p><iframe src="wavs/frMale_Voice_WaveGlowFinetune/candide_01_voltaire_00019.txt" frameborder="0" height="40" width="95%"></iframe></p> 
-</td>
-<td>
-<audio controls="">
-<source src="wavs/frMale_Voice_WaveGlowFinetune/candide_01_voltaire_00019.wav" type="audio/wav">Your browser does not support the audio tag.</source>
-</audio>
-</td>
-<td>
-<audio controls="">
-<source src="wavs/frMale_Voice_WaveGlowFinetune/candide_01_voltaire_00019_waveglow.wav" type="audio/wav">Your browser does not support the audio tag.</source>
-</audio>
-</td>
-<td>
-<audio controls="">
-<source src="wavs/frMale_Voice_WaveGlowFinetune/candide_01_voltaire_00019_ppg.wav" type="audio/wav">Your browser does not support the audio tag.</source>
-</audio>
-</td>
-</tr>
-<tr>
-<td>candide_01_voltaire_00021</td>
-<td>
-<p><iframe src="wavs/frMale_Voice_WaveGlowFinetune/candide_01_voltaire_00021.txt" frameborder="0" height="40" width="95%"></iframe></p> 
-</td>
-<td>
-<audio controls="">
-<source src="wavs/frMale_Voice_WaveGlowFinetune/candide_01_voltaire_00021.wav" type="audio/wav">Your browser does not support the audio tag.</source>
-</audio>
-</td>
-<td>
-<audio controls="">
-<source src="wavs/frMale_Voice_WaveGlowFinetune/candide_01_voltaire_00021_waveglow.wav" type="audio/wav">Your browser does not support the audio tag.</source>
-</audio>
-</td>
-<td>
-<audio controls="">
-<source src="wavs/frMale_Voice_WaveGlowFinetune/candide_01_voltaire_00021_ppg.wav" type="audio/wav">Your browser does not support the audio tag.</source>
-</audio>
-</td>
-</tr>
-<tr>
-<td>candide_01_voltaire_00023</td>
-<td>
-<p><iframe src="wavs/frMale_Voice_WaveGlowFinetune/candide_01_voltaire_00023.txt" frameborder="0" height="40" width="95%"></iframe></p> 
-</td>
-<td>
-<audio controls="">
-<source src="wavs/frMale_Voice_WaveGlowFinetune/candide_01_voltaire_00023.wav" type="audio/wav">Your browser does not support the audio tag.</source>
-</audio>
-</td>
-<td>
-<audio controls="">
-<source src="wavs/frMale_Voice_WaveGlowFinetune/candide_01_voltaire_00023_waveglow.wav" type="audio/wav">Your browser does not support the audio tag.</source>
-</audio>
-</td>
-<td>
-<audio controls="">
-<source src="wavs/frMale_Voice_WaveGlowFinetune/candide_01_voltaire_00023_ppg.wav" type="audio/wav">Your browser does not support the audio tag.</source>
-</audio>
-</td>
-</tr>
-<tr>
-<td>candide_01_voltaire_00025</td>
-<td>
-<p><iframe src="wavs/frMale_Voice_WaveGlowFinetune/candide_01_voltaire_00025.txt" frameborder="0" height="40" width="95%"></iframe></p> 
-</td>
-<td>
-<audio controls="">
-<source src="wavs/frMale_Voice_WaveGlowFinetune/candide_01_voltaire_00025.wav" type="audio/wav">Your browser does not support the audio tag.</source>
-</audio>
-</td>
-<td>
-<audio controls="">
-<source src="wavs/frMale_Voice_WaveGlowFinetune/candide_01_voltaire_00025_waveglow.wav" type="audio/wav">Your browser does not support the audio tag.</source>
-</audio>
-</td>
-<td>
-<audio controls="">
-<source src="wavs/frMale_Voice_WaveGlowFinetune/candide_01_voltaire_00025_ppg.wav" type="audio/wav">Your browser does not support the audio tag.</source>
-</audio>
-</td>
-</tr>
-<tr>
-<td>candide_01_voltaire_00029</td>
-<td>
-<p><iframe src="wavs/frMale_Voice_WaveGlowFinetune/candide_01_voltaire_00029.txt" frameborder="0" height="40" width="95%"></iframe></p> 
-</td>
-<td>
-<audio controls="">
-<source src="wavs/frMale_Voice_WaveGlowFinetune/candide_01_voltaire_00029.wav" type="audio/wav">Your browser does not support the audio tag.</source>
-</audio>
-</td>
-<td>
-<audio controls="">
-<source src="wavs/frMale_Voice_WaveGlowFinetune/candide_01_voltaire_00029_waveglow.wav" type="audio/wav">Your browser does not support the audio tag.</source>
-</audio>
-</td>
-<td>
-<audio controls="">
-<source src="wavs/frMale_Voice_WaveGlowFinetune/candide_01_voltaire_00029_ppg.wav" type="audio/wav">Your browser does not support the audio tag.</source>
-</audio>
-</td>
-</tr>
-<tr>
-<td>candide_01_voltaire_00039</td>
-<td>
-<p><iframe src="wavs/frMale_Voice_WaveGlowFinetune/candide_01_voltaire_00039.txt" frameborder="0" height="40" width="95%"></iframe></p> 
-</td>
-<td>
-<audio controls="">
-<source src="wavs/frMale_Voice_WaveGlowFinetune/candide_01_voltaire_00039.wav" type="audio/wav">Your browser does not support the audio tag.</source>
-</audio>
-</td>
-<td>
-<audio controls="">
-<source src="wavs/frMale_Voice_WaveGlowFinetune/candide_01_voltaire_00039_waveglow.wav" type="audio/wav">Your browser does not support the audio tag.</source>
-</audio>
-</td>
-<td>
-<audio controls="">
-<source src="wavs/frMale_Voice_WaveGlowFinetune/candide_01_voltaire_00039_ppg.wav" type="audio/wav">Your browser does not support the audio tag.</source>
-</audio>
-</td>
-</tr>
-<tr>
-<td>candide_01_voltaire_00043</td>
-<td>
-<p><iframe src="wavs/frMale_Voice_WaveGlowFinetune/candide_01_voltaire_00043.txt" frameborder="0" height="40" width="95%"></iframe></p> 
-</td>
-<td>
-<audio controls="">
-<source src="wavs/frMale_Voice_WaveGlowFinetune/candide_01_voltaire_00043.wav" type="audio/wav">Your browser does not support the audio tag.</source>
-</audio>
-</td>
-<td>
-<audio controls="">
-<source src="wavs/frMale_Voice_WaveGlowFinetune/candide_01_voltaire_00043_waveglow.wav" type="audio/wav">Your browser does not support the audio tag.</source>
-</audio>
-</td>
-<td>
-<audio controls="">
-<source src="wavs/frMale_Voice_WaveGlowFinetune/candide_01_voltaire_00043_ppg.wav" type="audio/wav">Your browser does not support the audio tag.</source>
-</audio>
-</td>
-</tr>
-<tr>
-<td>candide_01_voltaire_00044</td>
-<td>
-<p><iframe src="wavs/frMale_Voice_WaveGlowFinetune/candide_01_voltaire_00044.txt" frameborder="0" height="40" width="95%"></iframe></p> 
-</td>
-<td>
-<audio controls="">
-<source src="wavs/frMale_Voice_WaveGlowFinetune/candide_01_voltaire_00044.wav" type="audio/wav">Your browser does not support the audio tag.</source>
-</audio>
-</td>
-<td>
-<audio controls="">
-<source src="wavs/frMale_Voice_WaveGlowFinetune/candide_01_voltaire_00044_waveglow.wav" type="audio/wav">Your browser does not support the audio tag.</source>
-</audio>
-</td>
-<td>
-<audio controls="">
-<source src="wavs/frMale_Voice_WaveGlowFinetune/candide_01_voltaire_00044_ppg.wav" type="audio/wav">Your browser does not support the audio tag.</source>
-</audio>
-</td>
-</tr>
-<tr>
-<td>candide_01_voltaire_00048</td>
-<td>
-<p><iframe src="wavs/frMale_Voice_WaveGlowFinetune/candide_01_voltaire_00048.txt" frameborder="0" height="40" width="95%"></iframe></p> 
-</td>
-<td>
-<audio controls="">
-<source src="wavs/frMale_Voice_WaveGlowFinetune/candide_01_voltaire_00048.wav" type="audio/wav">Your browser does not support the audio tag.</source>
-</audio>
-</td>
-<td>
-<audio controls="">
-<source src="wavs/frMale_Voice_WaveGlowFinetune/candide_01_voltaire_00048_waveglow.wav" type="audio/wav">Your browser does not support the audio tag.</source>
-</audio>
-</td>
-<td>
-<audio controls="">
-<source src="wavs/frMale_Voice_WaveGlowFinetune/candide_01_voltaire_00048_ppg.wav" type="audio/wav">Your browser does not support the audio tag.</source>
-</audio>
-</td>
-</tr>
-<tr>
-<td>candide_01_voltaire_00050</td>
-<td>
-<p><iframe src="wavs/frMale_Voice_WaveGlowFinetune/candide_01_voltaire_00050.txt" frameborder="0" height="40" width="95%"></iframe></p> 
-</td>
-<td>
-<audio controls="">
-<source src="wavs/frMale_Voice_WaveGlowFinetune/candide_01_voltaire_00050.wav" type="audio/wav">Your browser does not support the audio tag.</source>
-</audio>
-</td>
-<td>
-<audio controls="">
-<source src="wavs/frMale_Voice_WaveGlowFinetune/candide_01_voltaire_00050_waveglow.wav" type="audio/wav">Your browser does not support the audio tag.</source>
-</audio>
-</td>
-<td>
-<audio controls="">
-<source src="wavs/frMale_Voice_WaveGlowFinetune/candide_01_voltaire_00050_ppg.wav" type="audio/wav">Your browser does not support the audio tag.</source>
-</audio>
-</td>
-</tr>
-<tr>
-<td>candide_01_voltaire_00052</td>
-<td>
-<p><iframe src="wavs/frMale_Voice_WaveGlowFinetune/candide_01_voltaire_00052.txt" frameborder="0" height="40" width="95%"></iframe></p> 
-</td>
-<td>
-<audio controls="">
-<source src="wavs/frMale_Voice_WaveGlowFinetune/candide_01_voltaire_00052.wav" type="audio/wav">Your browser does not support the audio tag.</source>
-</audio>
-</td>
-<td>
-<audio controls="">
-<source src="wavs/frMale_Voice_WaveGlowFinetune/candide_01_voltaire_00052_waveglow.wav" type="audio/wav">Your browser does not support the audio tag.</source>
-</audio>
-</td>
-<td>
-<audio controls="">
-<source src="wavs/frMale_Voice_WaveGlowFinetune/candide_01_voltaire_00052_ppg.wav" type="audio/wav">Your browser does not support the audio tag.</source>
-</audio>
-</td>
-</tr>
-<tr>
-<td>candide_01_voltaire_00053</td>
-<td>
-<p><iframe src="wavs/frMale_Voice_WaveGlowFinetune/candide_01_voltaire_00053.txt" frameborder="0" height="40" width="95%"></iframe></p> 
-</td>
-<td>
-<audio controls="">
-<source src="wavs/frMale_Voice_WaveGlowFinetune/candide_01_voltaire_00053.wav" type="audio/wav">Your browser does not support the audio tag.</source>
-</audio>
-</td>
-<td>
-<audio controls="">
-<source src="wavs/frMale_Voice_WaveGlowFinetune/candide_01_voltaire_00053_waveglow.wav" type="audio/wav">Your browser does not support the audio tag.</source>
-</audio>
-</td>
-<td>
-<audio controls="">
-<source src="wavs/frMale_Voice_WaveGlowFinetune/candide_01_voltaire_00053_ppg.wav" type="audio/wav">Your browser does not support the audio tag.</source>
-</audio>
-</td>
-</tr>
-<tr>
-<td>candide_01_voltaire_00056</td>
-<td>
-<p><iframe src="wavs/frMale_Voice_WaveGlowFinetune/candide_01_voltaire_00056.txt" frameborder="0" height="40" width="95%"></iframe></p> 
-</td>
-<td>
-<audio controls="">
-<source src="wavs/frMale_Voice_WaveGlowFinetune/candide_01_voltaire_00056.wav" type="audio/wav">Your browser does not support the audio tag.</source>
-</audio>
-</td>
-<td>
-<audio controls="">
-<source src="wavs/frMale_Voice_WaveGlowFinetune/candide_01_voltaire_00056_waveglow.wav" type="audio/wav">Your browser does not support the audio tag.</source>
-</audio>
-</td>
-<td>
-<audio controls="">
-<source src="wavs/frMale_Voice_WaveGlowFinetune/candide_01_voltaire_00056_ppg.wav" type="audio/wav">Your browser does not support the audio tag.</source>
-</audio>
-</td>
-</tr>
-<tr>
-<td>candide_01_voltaire_00064</td>
-<td>
-<p><iframe src="wavs/frMale_Voice_WaveGlowFinetune/candide_01_voltaire_00064.txt" frameborder="0" height="40" width="95%"></iframe></p> 
-</td>
-<td>
-<audio controls="">
-<source src="wavs/frMale_Voice_WaveGlowFinetune/candide_01_voltaire_00064.wav" type="audio/wav">Your browser does not support the audio tag.</source>
-</audio>
-</td>
-<td>
-<audio controls="">
-<source src="wavs/frMale_Voice_WaveGlowFinetune/candide_01_voltaire_00064_waveglow.wav" type="audio/wav">Your browser does not support the audio tag.</source>
-</audio>
-</td>
-<td>
-<audio controls="">
-<source src="wavs/frMale_Voice_WaveGlowFinetune/candide_01_voltaire_00064_ppg.wav" type="audio/wav">Your browser does not support the audio tag.</source>
-</audio>
-</td>
-</tr>
-</tbody>
-</table>
-
-<h2> Converted Samples </h2>
-
-<table width="100%" class="samples">
-<tbody>
-	<tr>
-		<th>Utterance ID</th>
-		<th>Kaldi ASR Transcription</th>
-		<th>Audio Sample</th>
-		<th>Converted via ppg (PPG2MEL + WAVEGLOW)</th>	
+	<audio controls="">
+		<source src="wavs/frFemale_Voice_WaveGlowFinetune/siwis_0001_waveglow.wav" type="audio/wav">Your browser does not support the audio tag.</source>
+		</audio>
+		</td>
 	</tr>
 
-<tr>
-<td>la_vampire_01_f000001</td>
-<td>
-<p><iframe src="wavs/frVoiceConv/la_vampire_01_f000001.txt" frameborder="0" height="40" width="95%"></iframe></p> 
-</td>
-<td>
-<audio controls="">
-<source src="wavs/frVoiceConv/la_vampire_01_f000001.wav" type="audio/wav">Your browser does not support the audio tag.</source>
-</audio>
-</td>
-<td>
-<audio controls="">
-<source src="wavs/frVoiceConv/la_vampire_01_f000001_ppg.wav" type="audio/wav">Your browser does not support the audio tag.</source>
-</audio>
-</td>
-</tr>
-<tr>
-<td>la_vampire_01_f000002</td>
-<td>
-<p><iframe src="wavs/frVoiceConv/la_vampire_01_f000002.txt" frameborder="0" height="40" width="95%"></iframe></p> 
-</td>
-<td>
-<audio controls="">
-<source src="wavs/frVoiceConv/la_vampire_01_f000002.wav" type="audio/wav">Your browser does not support the audio tag.</source>
-</audio>
-</td>
-<td>
-<audio controls="">
-<source src="wavs/frVoiceConv/la_vampire_01_f000002_ppg.wav" type="audio/wav">Your browser does not support the audio tag.</source>
-</audio>
-</td>
-</tr>
-<tr>
-<td>la_vampire_01_f000003</td>
-<td>
-<p><iframe src="wavs/frVoiceConv/la_vampire_01_f000003.txt" frameborder="0" height="40" width="95%"></iframe></p> 
-</td>
-<td>
-<audio controls="">
-<source src="wavs/frVoiceConv/la_vampire_01_f000003.wav" type="audio/wav">Your browser does not support the audio tag.</source>
-</audio>
-</td>
-<td>
-<audio controls="">
-<source src="wavs/frVoiceConv/la_vampire_01_f000003_ppg.wav" type="audio/wav">Your browser does not support the audio tag.</source>
-</audio>
-</td>
-</tr>
-<tr>
-<td>la_vampire_01_f000004</td>
-<td>
-<p><iframe src="wavs/frVoiceConv/la_vampire_01_f000004.txt" frameborder="0" height="40" width="95%"></iframe></p> 
-</td>
-<td>
-<audio controls="">
-<source src="wavs/frVoiceConv/la_vampire_01_f000004.wav" type="audio/wav">Your browser does not support the audio tag.</source>
-</audio>
-</td>
-<td>
-<audio controls="">
-<source src="wavs/frVoiceConv/la_vampire_01_f000004_ppg.wav" type="audio/wav">Your browser does not support the audio tag.</source>
-</audio>
-</td>
-</tr>
-<tr>
-<td>la_vampire_01_f000005</td>
-<td>
-<p><iframe src="wavs/frVoiceConv/la_vampire_01_f000005.txt" frameborder="0" height="40" width="95%"></iframe></p> 
-</td>
-<td>
-<audio controls="">
-<source src="wavs/frVoiceConv/la_vampire_01_f000005.wav" type="audio/wav">Your browser does not support the audio tag.</source>
-</audio>
-</td>
-<td>
-<audio controls="">
-<source src="wavs/frVoiceConv/la_vampire_01_f000005_ppg.wav" type="audio/wav">Your browser does not support the audio tag.</source>
-</audio>
-</td>
-</tr>
-<tr>
-<td>la_vampire_01_f000006</td>
-<td>
-<p><iframe src="wavs/frVoiceConv/la_vampire_01_f000006.txt" frameborder="0" height="40" width="95%"></iframe></p> 
-</td>
-<td>
-<audio controls="">
-<source src="wavs/frVoiceConv/la_vampire_01_f000006.wav" type="audio/wav">Your browser does not support the audio tag.</source>
-</audio>
-</td>
-<td>
-<audio controls="">
-<source src="wavs/frVoiceConv/la_vampire_01_f000006_ppg.wav" type="audio/wav">Your browser does not support the audio tag.</source>
-</audio>
-</td>
-</tr>
-<tr>
-<td>la_vampire_01_f000007</td>
-<td>
-<p><iframe src="wavs/frVoiceConv/la_vampire_01_f000007.txt" frameborder="0" height="40" width="95%"></iframe></p> 
-</td>
-<td>
-<audio controls="">
-<source src="wavs/frVoiceConv/la_vampire_01_f000007.wav" type="audio/wav">Your browser does not support the audio tag.</source>
-</audio>
-</td>
-<td>
-<audio controls="">
-<source src="wavs/frVoiceConv/la_vampire_01_f000007_ppg.wav" type="audio/wav">Your browser does not support the audio tag.</source>
-</audio>
-</td>
-</tr>
-<tr>
-<td>la_vampire_01_f000008</td>
-<td>
-<p><iframe src="wavs/frVoiceConv/la_vampire_01_f000008.txt" frameborder="0" height="40" width="95%"></iframe></p> 
-</td>
-<td>
-<audio controls="">
-<source src="wavs/frVoiceConv/la_vampire_01_f000008.wav" type="audio/wav">Your browser does not support the audio tag.</source>
-</audio>
-</td>
-<td>
-<audio controls="">
-<source src="wavs/frVoiceConv/la_vampire_01_f000008_ppg.wav" type="audio/wav">Your browser does not support the audio tag.</source>
-</audio>
-</td>
-</tr>
-<tr>
-<td>la_vampire_01_f000009</td>
-<td>
-<p><iframe src="wavs/frVoiceConv/la_vampire_01_f000009.txt" frameborder="0" height="40" width="95%"></iframe></p> 
-</td>
-<td>
-<audio controls="">
-<source src="wavs/frVoiceConv/la_vampire_01_f000009.wav" type="audio/wav">Your browser does not support the audio tag.</source>
-</audio>
-</td>
-<td>
-<audio controls="">
-<source src="wavs/frVoiceConv/la_vampire_01_f000009_ppg.wav" type="audio/wav">Your browser does not support the audio tag.</source>
-</audio>
-</td>
-</tr>
-<tr>
-<td>la_vampire_01_f000010</td>
-<td>
-<p><iframe src="wavs/frVoiceConv/la_vampire_01_f000010.txt" frameborder="0" height="40" width="95%"></iframe></p> 
-</td>
-<td>
-<audio controls="">
-<source src="wavs/frVoiceConv/la_vampire_01_f000010.wav" type="audio/wav">Your browser does not support the audio tag.</source>
-</audio>
-</td>
-<td>
-<audio controls="">
-<source src="wavs/frVoiceConv/la_vampire_01_f000010_ppg.wav" type="audio/wav">Your browser does not support the audio tag.</source>
-</audio>
-</td>
-</tr>
-<tr>
-<td>la_vampire_01_f000011</td>
-<td>
-<p><iframe src="wavs/frVoiceConv/la_vampire_01_f000011.txt" frameborder="0" height="40" width="95%"></iframe></p> 
-</td>
-<td>
-<audio controls="">
-<source src="wavs/frVoiceConv/la_vampire_01_f000011.wav" type="audio/wav">Your browser does not support the audio tag.</source>
-</audio>
-</td>
-<td>
-<audio controls="">
-<source src="wavs/frVoiceConv/la_vampire_01_f000011_ppg.wav" type="audio/wav">Your browser does not support the audio tag.</source>
-</audio>
-</td>
-</tr>
-<tr>
-<td>la_vampire_01_f000012</td>
-<td>
-<p><iframe src="wavs/frVoiceConv/la_vampire_01_f000012.txt" frameborder="0" height="40" width="95%"></iframe></p> 
-</td>
-<td>
-<audio controls="">
-<source src="wavs/frVoiceConv/la_vampire_01_f000012.wav" type="audio/wav">Your browser does not support the audio tag.</source>
-</audio>
-</td>
-<td>
-<audio controls="">
-<source src="wavs/frVoiceConv/la_vampire_01_f000012_ppg.wav" type="audio/wav">Your browser does not support the audio tag.</source>
-</audio>
-</td>
-</tr>
-<tr>
-<td>la_vampire_01_f000013</td>
-<td>
-<p><iframe src="wavs/frVoiceConv/la_vampire_01_f000013.txt" frameborder="0" height="40" width="95%"></iframe></p> 
-</td>
-<td>
-<audio controls="">
-<source src="wavs/frVoiceConv/la_vampire_01_f000013.wav" type="audio/wav">Your browser does not support the audio tag.</source>
-</audio>
-</td>
-<td>
-<audio controls="">
-<source src="wavs/frVoiceConv/la_vampire_01_f000013_ppg.wav" type="audio/wav">Your browser does not support the audio tag.</source>
-</audio>
-</td>
-</tr>
-<tr>
-<td>la_vampire_01_f000014</td>
-<td>
-<p><iframe src="wavs/frVoiceConv/la_vampire_01_f000014.txt" frameborder="0" height="40" width="95%"></iframe></p> 
-</td>
-<td>
-<audio controls="">
-<source src="wavs/frVoiceConv/la_vampire_01_f000014.wav" type="audio/wav">Your browser does not support the audio tag.</source>
-</audio>
-</td>
-<td>
-<audio controls="">
-<source src="wavs/frVoiceConv/la_vampire_01_f000014_ppg.wav" type="audio/wav">Your browser does not support the audio tag.</source>
-</audio>
-</td>
-</tr>
-<tr>
-<td>la_vampire_01_f000015</td>
-<td>
-<p><iframe src="wavs/frVoiceConv/la_vampire_01_f000015.txt" frameborder="0" height="40" width="95%"></iframe></p> 
-</td>
-<td>
-<audio controls="">
-<source src="wavs/frVoiceConv/la_vampire_01_f000015.wav" type="audio/wav">Your browser does not support the audio tag.</source>
-</audio>
-</td>
-<td>
-<audio controls="">
-<source src="wavs/frVoiceConv/la_vampire_01_f000015_ppg.wav" type="audio/wav">Your browser does not support the audio tag.</source>
-</audio>
-</td>
-</tr>
-<tr>
-<td>la_vampire_01_f000016</td>
-<td>
-<p><iframe src="wavs/frVoiceConv/la_vampire_01_f000016.txt" frameborder="0" height="40" width="95%"></iframe></p> 
-</td>
-<td>
-<audio controls="">
-<source src="wavs/frVoiceConv/la_vampire_01_f000016.wav" type="audio/wav">Your browser does not support the audio tag.</source>
-</audio>
-</td>
-<td>
-<audio controls="">
-<source src="wavs/frVoiceConv/la_vampire_01_f000016_ppg.wav" type="audio/wav">Your browser does not support the audio tag.</source>
-</audio>
-</td>
-</tr>
-<tr>
-<td>la_vampire_01_f000017</td>
-<td>
-<p><iframe src="wavs/frVoiceConv/la_vampire_01_f000017.txt" frameborder="0" height="40" width="95%"></iframe></p> 
-</td>
-<td>
-<audio controls="">
-<source src="wavs/frVoiceConv/la_vampire_01_f000017.wav" type="audio/wav">Your browser does not support the audio tag.</source>
-</audio>
-</td>
-<td>
-<audio controls="">
-<source src="wavs/frVoiceConv/la_vampire_01_f000017_ppg.wav" type="audio/wav">Your browser does not support the audio tag.</source>
-</audio>
-</td>
-</tr>
-<tr>
-<td>la_vampire_01_f000018</td>
-<td>
-<p><iframe src="wavs/frVoiceConv/la_vampire_01_f000018.txt" frameborder="0" height="40" width="95%"></iframe></p> 
-</td>
-<td>
-<audio controls="">
-<source src="wavs/frVoiceConv/la_vampire_01_f000018.wav" type="audio/wav">Your browser does not support the audio tag.</source>
-</audio>
-</td>
-<td>
-<audio controls="">
-<source src="wavs/frVoiceConv/la_vampire_01_f000018_ppg.wav" type="audio/wav">Your browser does not support the audio tag.</source>
-</audio>
-</td>
-</tr>
-<tr>
-<td>la_vampire_01_f000019</td>
-<td>
-<p><iframe src="wavs/frVoiceConv/la_vampire_01_f000019.txt" frameborder="0" height="40" width="95%"></iframe></p> 
-</td>
-<td>
-<audio controls="">
-<source src="wavs/frVoiceConv/la_vampire_01_f000019.wav" type="audio/wav">Your browser does not support the audio tag.</source>
-</audio>
-</td>
-<td>
-<audio controls="">
-<source src="wavs/frVoiceConv/la_vampire_01_f000019_ppg.wav" type="audio/wav">Your browser does not support the audio tag.</source>
-</audio>
-</td>
-</tr>
-<tr>
-<td>la_vampire_01_f000020</td>
-<td>
-<p><iframe src="wavs/frVoiceConv/la_vampire_01_f000020.txt" frameborder="0" height="40" width="95%"></iframe></p> 
-</td>
-<td>
-<audio controls="">
-<source src="wavs/frVoiceConv/la_vampire_01_f000020.wav" type="audio/wav">Your browser does not support the audio tag.</source>
-</audio>
-</td>
-<td>
-<audio controls="">
-<source src="wavs/frVoiceConv/la_vampire_01_f000020_ppg.wav" type="audio/wav">Your browser does not support the audio tag.</source>
-</audio>
-</td>
-</tr>
-
-
-
-
-
-
-
-
-
-
-
-
-
-</tbody>
 </table>
-<!-- 
+</tbody>
+<!--   Intra-speaker voice conversion  -->
+<h2>Intra-speaker voice conversion</h2>
+
+
+
+<table width="100%" class="samples">
+	<tbody>
+		<tr>
+			<th>Speaker ID</th>
+			<th><abbr>IS</abbr> Voc. </th>
+			<th>Syn. mode - <abbr>IS</abbr>   </th>
+			<th>Conv. mode- <abbr>IS</abbr> to <abbr>DS</abbr> </th>	
+			<th>Syn. mode - <abbr>DS</abbr> </th>	
+			<th>DS Voc.</th>	
+		</tr>
+	
+	
+	<tr>
+	<td>siwis_0001</td>
+	<td>
+	<p><iframe src="wavs/frFemale_Voice_WaveGlowFinetune/siwis_0001.txt" frameborder="0" height="40" width="95%"></iframe></p> 
+	</td>
+	<td>
+	<audio controls="">
+	<source src="wavs/frFemale_Voice_WaveGlowFinetune/siwis_0001.wav" type="audio/wav">Your browser does not support the audio tag.</source>
+	</audio>
+	</td>
+	<td>
+	<audio controls="">
+	<source src="wavs/frFemale_Voice_WaveGlowFinetune/siwis_0001_waveglow.wav" type="audio/wav">Your browser does not support the audio tag.</source>
+	</audio>
+	</td>
+	<td>
+	<audio controls="">
+		<source src="wavs/frFemale_Voice_WaveGlowFinetune/siwis_0001_waveglow.wav" type="audio/wav">Your browser does not support the audio tag.</source>
+		</audio>
+		</td>
+	
+	
+	<td>
+		<audio controls="">
+			<source src="wavs/frFemale_Voice_WaveGlowFinetune/siwis_0001_waveglow.wav" type="audio/wav">Your browser does not support the audio tag.</source>
+			</audio>
+			</td>
+		</tr>
+	
+	</table>
+	</tbody>
+
+
+
+<h2> Comments </h2>
+
+
 <h2>References</h2>
-	<p>[1] G. Zhao, S. Sonsaat, J. Levis, E. Chukharev-Hudilainen, and R. Gutierrez-Osuna, "Accent conversion using phonetic posteriorgrams," in Proc. ICASSP, 2018.</p>
-	<p>[2] G. Zhao, S. Sonsaat, A. Silpachai, I. Lucic, E. Chukharev-Hudilainen, J. Levis, and R. Gutierrez-Osuna, "L2-ARCTIC: A non-native English speech corpus," in Proc. Interspeech, 2018.</p> -->
+	<p>[1] Sini, A., Lolive, D., Vidal, G., Tahon, M., & Delais-Roussarie, E. (2018, May). Synpaflex-corpus: An expressive french audiobooks corpus dedicated to expressive speech synthesis. In Proceedings of the Eleventh International Conference on Language Resources and Evaluation (LREC 2018).</p>
+	<!-- s<p>[2] G. Zhao, S. Sonsaat, A. Silpachai, I. Lucic, E. Chukharev-Hudilainen, J. Levis, and R. Gutierrez-Osuna, "L2-ARCTIC: A non-native English speech corpus," in Proc. Interspeech, 2018.</p>  -->
+
+
+
+
 </main>
+
+<footer>(*) LA : <a href="http://www.litteratureaudio.com/" > litteratureaudio.com</a> (No public domain)  , LV: <a href="https://librivox.org/">LibriVox.org </a> (public domain)   </footer>
+
 </body>
 
 <script type="text/javascript">
