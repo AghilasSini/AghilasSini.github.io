@@ -1,0 +1,214 @@
+\begin{frame}<1>[fragile,label=corpus]
+
+
+\frametitle{SynPaFlex Corpus}
+
+ 
+ \begin{tikzpicture}[node distance=2.1cm,scale=0.5, every node/.style={scale=0.5}]
+
+ \node[cloud, cloud puffs=10.7, cloud ignores aspect, minimum width=2cm, minimum height=1cm, draw] (cloud) {Internet};
+ 
+  \node[database,label={below:\textbf{SynPaFlex Corpus}},database radius=0.6cm,database segment height=0.4cm] (dataset) [below of=cloud,node distance=5cm]  {};
+  
+  \draw[->] (cloud)--(dataset) ;
+  
+  \node[align=center,rotate=90] at (0.2,-2.5)  {\textbf{Librivox.org}};
+  
+ 
+  
+  
+  \node[draw,text width=2.5cm,text height=1.5cm,visible on=<2->](prepossessing)[node distance=3.5cm, right of=dataset]{};
+    \node[align=center,visible on=<2->] at (prepossessing.center)  {\textbf{Data Selection}};
+    
+    
+    
+    %Second Slide
+    \node[text width=10cm,visible on=<2->] at (7,-0.5) (speaker){\-- A large corpus, single female speaker};
+    %%
+    \node[text width=10cm,visible on=<2->] at (7,-1) (quality){\-- Good audio signal quality and homogeneous voice};
+    \node[text width=10cm,visible on=<2->] at (7,-1.5) (selecttext){\-- Various discourse styles and literary genres};
+    \node[text width=10cm,visible on=<2->] at (7,-2) (datasizet){\-- \textbf{87 hours} of read speech };
+    
+    
+    
+    
+    
+    
+
+
+    
+    
+\draw[->,thick,visible on=<2->] (dataset)--(prepossessing);
+    
+    
+    
+  
+  \node[draw,text width=2.5cm,text height=1.5cm,align=center,visible on=<2->](normalisation)[node distance=3.5cm, right of=prepossessing]{};
+    \node[align=center,visible on=<2->,visible on=<2->,visible on=<2->] at (normalisation.center)  {\textbf{Normalisation}};
+
+\draw[->,thick,visible on=<2->,visible on=<2->] (prepossessing)--(normalisation);
+  
+  
+      %%
+    \node[text width=10cm,visible on=<2->] at (7,-2.5) (nomalisation){\-- Uniform text format and harmonized audio loudness  };
+    
+  
+  
+  
+  \node[draw=blue,visible on=<2->](annotator)[right of=normalisation,node distance=3.5cm,text width=2.5cm,text height=1.5cm]{};
+  
+   \node[align=center,visible on=<2->] at (annotator.center)  {\textbf{Annotation}};
+  
+  \draw[->,thick,visible on=<2->] (normalisation)--(annotator);
+  
+       \node[text width=10cm,visible on=<2->] at (7,-3) (annotation){\-- Single  annotator}; 
+
+
+%%EMOTION
+
+ \node[circle,thick,minimum width=2cm,draw,visible on=<3->](emotion)[above right = 0.5cm and 0.9cm of annotator]{Emotions};
+ 
+ \draw[->,thick,visible on=<3->] (annotator) edge[in=180,out=00] (emotion);
+  
+
+ \node[fill=blue!20,visible on=<3->](category)[right of=emotion,node distance=3.0cm,align=center]{\textbf{basic emotions}};
+ 
+
+ \draw[->,thick,visible on=<3->] (emotion) -- (category);
+ 
+ 
+ \node[below left=50pt and 30pt of emotion,draw=red!70,text width=8cm,visible on=<3>](reproduce){\textbf{Can we reproduce the manual annotation?}};
+ 
+
+%\node[,visible on=<4->](intensity)[above of=category,node distance=1cm,align=center]{\textbf{Intensity}};
+% \draw [->,thick,visible on=<4->] (emotion) edge[out=-0,in=180] (intensity);
+ 
+ 
+ 
+ 
+ %\node[,visible on=<5->](state)[below of=category,minimum width=2 cm,node distance=1cm,align=center]{\textbf{Profile}};
+ 
+ %\draw [->,thick,visible on=<5->] (emotion) edge[out=-0,in=180] (state);
+
+
+%% Events Annotation
+
+ \node[circle,thick,minimum width=2cm,draw,visible on=<7->](events)[below=5pt of emotion ]{Events};
+\draw [->,thick,visible on=<7->] (annotator) edge[out=-0,in=180] (events);
+
+ 
+ \node[right=10pt of events,visible on=<7->](phonetic){whispered voice};
+ 
+ \draw [->,thick,visible on=<7->] (events) edge[out=-0,in=180] (phonetic);
+ 
+
+%% Intonation
+\node[below=20pt of events,circle,thick,minimum width=2cm,draw,visible on=<6->](intonation){Intonation};
+ 
+ \draw [->,thick,visible on=<6->] (annotator) edge[out=-0,in=180] (intonation);
+ 
+\node[right =10pt of intonation,visible on=<6->,align=left](pattern)[]{Question};
+
+\draw [->,thick,visible on=<6->] (intonation) edge[out=-0,in=180] (pattern);
+
+
+
+
+
+
+
+
+
+
+%%
+
+
+
+
+
+%% Character annotation
+ \node[below=5pt of intonation,circle,thick,minimum width=2 cm,minimum height=1cm,draw,visible on=<8->](characters)[visible on=<4-> ]{Characters};
+ \draw[->,thick,visible on=<8->] (annotator) edge[out=-0,in=180] (characters);
+ 
+ %% Characters Items
+ 
+ \node[right=10pt of characters,visible on=<8->](charId)[]{Identifier};
+ \draw[->,visible on=<8->,thick] (characters) -- (charId);
+ 
+ 
+ %\node[below =5pt  of id,text width=1.5cm,visible on=<8->](vocalId){Vocal Identity};
+ 
+
+
+
+
+
+
+
+%MuFsa
+\frametitle<9>{MUFASA Corpus}
+  \node[database,database radius=0.7cm,database segment height=0.5cm,visible on=<9->] (mufasa) [below of=dataset,node distance=4cm,visible on=<9->]  {};
+   \node[align=center,visible on=<9->] at (mufasa.south){\textbf{MUFASA Corpus}};
+
+\draw[draw=black!60,thick,->,visible on=<9->]  (cloud.west) -| (-1.5,-6.5) -- (mufasa) ;
+
+\node[align=center,rotate=90,visible on=<9->] at (-1.3,-3.5)  {\textbf{Litterature audio.com}};
+
+\draw[draw=black!60,thick,->,visible on=<9->]  (dataset) -- (mufasa) ;
+
+
+\node[text width=10cm,visible on=<9->] at (7,-7) (mufasacontain){\-- 20 speaker  (10 Males/10 Females) };
+\node[text width=10cm,visible on=<9->] at (7,-7.5) (parallel){\-- Parallel data, same text read by different speakers };
+
+
+
+
+
+
+\node[align=center,rotate=90,visible on=<9->] at (0.2,-7)  {\textbf{update}};
+
+\draw[draw=black!60,thick,->,visible on=<9->]  (mufasa)  -- (prepossessing) ;
+
+
+
+
+%% For Future work
+
+\frametitle<10>{Speaker dependent annotation}
+
+
+
+
+     \begin{pgfonlayer}{background}
+        \path (emotion.west)+(-0.5,2.) node (g) {};
+        \path (events.east |- emotion.south)+(0.5,-2.5) node (h) {};
+        \path[fill=blue!20,rounded corners, draw=black!50, dashed,visible on=<10->]
+            (g) rectangle (h);
+    \end{pgfonlayer}
+
+\node[above=10pt of emotion,visible on=<10>] (spkdep){\textbf{Speaker dependent annotation}};
+
+
+
+
+
+\frametitle<11>{Speaker independent annotation}
+
+ \begin{pgfonlayer}{background}
+        \path (intonation.west)+(-0.5,2.) node (g) {};
+        \path (characters.east |- intonation.south)+(0.5,-2.5) node (h) {};
+        \path[fill=red!20,rounded corners, draw=black!50, dashed,visible on=<11->]
+            (g) rectangle (h);
+    \end{pgfonlayer}
+
+\node[below=10pt of characters,visible on=<11>] (spkinddep){\textbf{Speaker independent annotation}};
+
+
+%\node[draw,line width=3pt,fit=(characters),visible on=<11>](discourse){Discourse};
+
+
+\end{tikzpicture}
+
+    
+\end{frame}
+
